@@ -5,11 +5,10 @@ jobs:
     name: Build Theory
     steps:
       - uses: actions/checkout@v3
-      - uses: lexbailey/isabelle-theory-build-github-action@v7
+      - uses: lexbailey/isabelle-theory-build-github-action@v8
         with:
-          isabelle-version: '2021-1'
-          custom-isabelle-url: 'https://github.com/lexbailey/itrees_isabelle_fork/archive/refs/heads/itrees_utp.zip'
-          depends: 'https://github.com/lexbailey/Shallow-Expressions.git@main'
+          isabelle-url: 'https://github.com/seL4/isabelle/archive/refs/tags/Isabelle2023.tar.gz'
+          depends: 'https://github.com/lexbailey/Shallow-Expressions.git@main https://github.com/lexbailey/Abstract_Prog_Syntax.git@main'
           session-name: 'UTP2'
           report_url: 'https://isabelle-utp-ci-dashboard.link/submit_job_log'
           report_secret: ${{ secrets.DashboardReportKey }}
